@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>치이카와 – 탭 전환</title>
+  <style>
+    body { background:#000; color:#fff; font-family:"Noto Sans KR",sans-serif; margin:0; padding:0; }
+    nav { background:#111; border-bottom:1px solid #333; position:fixed; top:0; left:0; right:0; z-index:1000; }
+    nav .container { max-width:1200px; margin:0 auto; display:flex; justify-content:flex-start; align-items:center; padding:10px 20px; }
+    nav a { color:#ccc; margin-right:20px; text-decoration:none; cursor:pointer; }
+    nav a.active { color:#00ffe0; text-shadow:0 0 8px #00ffe0; }
+    main { padding-top:80px; max-width:900px; margin:0 auto; }
+    h2 { color:#00ffe0; margin-top:30px; }
+    img { max-width:500px; margin:20px auto; display:block; border-radius:10px; box-shadow:0 0 15px rgba(0,255,224,0.4); }
+    .neon-btn { display:inline-block; margin-top:15px; padding:12px 24px; color:#00ffe0; border:2px solid #00ffe0; border-radius:8px; text-decoration:none; text-transform:uppercase; transition:.3s; box-shadow:0 0 6px #00ffe0, 0 0 12px #00ffe0; }
+    .neon-btn:hover { background:#00ffe0; color:#000; box-shadow:0 0 20px #00ffe0,0 0 40px #00ffe0; }
+    iframe { margin:20px auto; display:block; border-radius:8px; box-shadow:0 0 20px rgba(0,255,224,0.3); width:100%; max-width:640px; height:360px; }
+    .hidden { display:none; }
+    .card-dark { background:#1a1a1a; border:1px solid #333; border-radius:10px; padding:20px; margin-bottom:20px; box-shadow:0 0 12px rgba(0,255,224,0.2); }
+    .card-dark h5 { color:#00ffe0; margin-bottom:10px; }
+  </style>
+</head>
+<body>
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="container">
+      <a class="active" onclick="showPage('home')">홈</a>
+      <a onclick="showPage('characters')">등장인물</a>
+    </div>
+  </nav>
+
+  <!-- 본문 -->
+  <main>
+    <!-- 홈 페이지 -->
+    <section id="home">
+      <h1>치이카와 페이지</h1>
+      <p>치이카와 세계에 오신 것을 환영합니다!<br>아래에는 HTML 기본 태그 예시가 포함되어 있습니다.</p>
+
+      <h2>이미지 태그
+      <img src="usagi.webp" alt="우사기 이미지">
+
+      
+      </video>
+
+      <h2>동영상 태그 </h2>
+      <iframe src="https://www.youtube.com/embed/pdUIZn2ulz8" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <!-- 등장인물 페이지 -->
+    <section id="characters" class="hidden">
+      <h1>등장인물 소개</h1>
+      <div class="card-dark"><h5>치이카와</h5><p>소심하지만 성실한 성격. 작은 행복을 소중히 여기는 존재.</p></div>
+      <div class="card-dark"><h5>하치와레</h5><p>긍정적이고 낙관적. 지식이 많아 팀의 브레인 역할.</p></div>
+      <div class="card-dark"><h5>우사기</h5><p>자유분방하고 장난꾸러기. 예상치 못한 행동으로 웃음을 줌.</p></div>
+      <div class="card-dark"><h5>모몬가</h5><p>응석받이 성격. 귀여움에 집착, 주변을 곤란하게 하기도 함.</p></div>
+      <div class="card-dark"><h5>라꼬</h5><p>든든한 멘토형 캐릭터. 위기 상황에서 믿을 수 있는 존재.</p></div>
+
+      <h3 style="color:#00ffe0; margin-top:30px;">소개글</h3>
+      <p>치이카와 세계는 소소한 일상의 기쁨과 친구 간의 유대를 따뜻하게 담아냅니다.<br>
+      각 캐릭터는 개성 있는 매력을 지니고 있으며, 서로를 격려하며 성장해 나갑니다.</p>
+    </section>
+  </main>
+
+  <!-- 탭 전환 스크립트 -->
+  <script>
+    function showPage(pageId) {
+      // 모든 section 숨김
+      document.querySelectorAll("main section").forEach(sec => sec.classList.add("hidden"));
+      // 선택한 section 보이기
+      document.getElementById(pageId).classList.remove("hidden");
+
+      // 네비게이션 active 변경
+      document.querySelectorAll("nav a").forEach(link => link.classList.remove("active"));
+      event.target.classList.add("active");
+    }
+  </script>
+</body>
+</html>
+
